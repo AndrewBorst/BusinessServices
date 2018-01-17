@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using BorstDo.Models;
+using DataApi.Models;
 
 
-namespace BorstDo
+namespace DataApi
 {
     public class Startup
     {
@@ -27,7 +27,8 @@ namespace BorstDo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BorstDoContext> (options => options.UseSqlite("Filename=./todo.db"));
+            services.AddDbContext<DataContext> (options => 
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); 
 
             services.AddMvc();
         }

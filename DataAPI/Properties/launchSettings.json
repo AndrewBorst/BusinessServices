@@ -11,15 +11,15 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/BorstDo",
+      "launchUrl": "api/DataApi",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "BorstDo": {
+    "DataApi": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/BorstDo",
+      "launchUrl": "api/DataApi",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

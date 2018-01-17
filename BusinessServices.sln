@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerPortal", "CustomerPortal\CustomerPortal.csproj", "{229A9B3C-9986-4F67-A8F4-88FAF1ECE436}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WMSDataApi", "DataAPI\WMSDataApi.csproj", "{2EC31158-2D04-442E-A251-F5B0A9016149}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataApi", "DataAPI\DataApi.csproj", "{2EC31158-2D04-442E-A251-F5B0A9016149}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JWTAuth", "JWTAuth\JWTAuth.csproj", "{5B8B60C8-9EE9-4841-87FC-C094F55ABAA9}"
 EndProject
