@@ -16,18 +16,23 @@ namespace DataApi.Controllers
 
             if (_context.ShipConfirms.Count() == 0)
             {
-                _context.ShipConfirms.Add(new ShipConfirm { OrderID = "BorstItem1" });
+                _context.ShipConfirms.Add(new ShipConfirm {
+                    OrderID = "Order1",
+                    ClientID = "TheClient",
+                    TrackNum = "9999911111",
+                    HasSent = false 
+                });
                 _context.SaveChanges();
             }
         }
 
-        [HttpGet]
+        [HttpGet("ship/")]
         public IEnumerable<ShipConfirm> GetAll()
         {
             return _context.ShipConfirms.ToList();
         }
 
-        [HttpGet("{id}", Name = "GetShipConfirm")]
+        [HttpGet("ship/order/{OrderID}", Name = "GetShipConfirm")]
         public IActionResult GetById(string OrderID)
         {
             var item = _context.ShipConfirms.FirstOrDefault(t => t.OrderID == OrderID);
@@ -53,7 +58,7 @@ namespace DataApi.Controllers
             return CreatedAtRoute("GetShipConfirm", new { id = item.OrderID }, item);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("order/{OrderID}")]
         public IActionResult Update(string OrderID, [FromBody] ShipConfirm item)
         {
             if (item == null || item.OrderID != OrderID)
@@ -75,7 +80,7 @@ namespace DataApi.Controllers
             return new NoContentResult(); 
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("order/{OrderID}")]
         public IActionResult Delete(string OrderID)
         {
             var sc = _context.ShipConfirms.FirstOrDefault(t => t.OrderID == OrderID);
