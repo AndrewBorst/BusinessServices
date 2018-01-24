@@ -22,9 +22,9 @@ namespace CustomerPortal.Controllers
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult Integration()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Your API documentation.";
 
             return View();
         }

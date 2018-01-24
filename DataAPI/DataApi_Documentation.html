@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><title>http://localhost:57375/swagger/#/DataApi</title><link rel="stylesheet" type="text/css" href="http%20_localhost%2057375_swagger_DataApi_files/viewsource.css"></head><body id="viewsource" class="highlight" style="-moz-tab-size: 4" contextmenu="actions"><pre id="line1"><span></span><span class="doctype">&lt;!DOCTYPE html&gt;</span><span>
+<span id="line2"></span></span><span>&lt;<span class="start-tag">html</span>&gt;</span><span>
+<span id="line3"></span></span><span>&lt;<span class="start-tag">head</span>&gt;</span><span>
+<span id="line4"></span>  </span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">charset</span>="<a class="attribute-value">UTF-8</a>"&gt;</span><span>
+<span id="line5"></span>  </span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">http-equiv</span>="<a class="attribute-value">x-ua-compatible</a>" <span class="attribute-name">content</span>="<a class="attribute-value">IE=edge</a>"&gt;</span><span>
+<span id="line6"></span>  </span><span>&lt;<span class="start-tag">title</span>&gt;</span><span>Swagger UI</span><span>&lt;/<span class="end-tag">title</span>&gt;</span><span>
+<span id="line7"></span>  </span><span>&lt;<span class="start-tag">link</span> <span class="attribute-name">rel</span>="<a class="attribute-value">icon</a>" <span class="attribute-name">type</span>="<a class="attribute-value">image/png</a>" <span class="attribute-name">href</span>="<a class="attribute-value" href="view-source:http://localhost:57375/swagger/images/favicon-32x32.png">images/favicon-32x32.png</a>" <span class="attribute-name">sizes</span>="<a class="attribute-value">32x32</a>" <span>/</span>&gt;</span><span>
+<span id="line8"></span>  </span><span>&lt;<span class="start-tag">link</span> <span class="attribute-name">rel</span>="<a class="attribute-value">icon</a>" <span class="attribute-name">type</span>="<a class="attribute-value">image/png</a>" <span class="attribute-name">href</span>="<a class="attribute-value" href="view-source:http://localhost:57375/swagger/images/favicon-16x16.png">images/favicon-16x16.png</a>" <span class="attribute-name">sizes</span>="<a class="attribute-value">16x16</a>" <span>/</span>&gt;</span><span>
+<span id="line9"></span>  </span><span>&lt;<span class="start-tag">link</span> <span class="attribute-name">href</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/css/typography.css">css/typography.css</a>' <span class="attribute-name">media</span>='<a class="attribute-value">screen</a>' <span class="attribute-name">rel</span>='<a class="attribute-value">stylesheet</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/css</a>'<span>/</span>&gt;</span><span>
+<span id="line10"></span>  </span><span>&lt;<span class="start-tag">link</span> <span class="attribute-name">href</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/css/reset.css">css/reset.css</a>' <span class="attribute-name">media</span>='<a class="attribute-value">screen</a>' <span class="attribute-name">rel</span>='<a class="attribute-value">stylesheet</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/css</a>'<span>/</span>&gt;</span><span>
+<span id="line11"></span>  </span><span>&lt;<span class="start-tag">link</span> <span class="attribute-name">href</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/css/screen.css">css/screen.css</a>' <span class="attribute-name">media</span>='<a class="attribute-value">screen</a>' <span class="attribute-name">rel</span>='<a class="attribute-value">stylesheet</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/css</a>'<span>/</span>&gt;</span><span>
+<span id="line12"></span>  </span><span>&lt;<span class="start-tag">link</span> <span class="attribute-name">href</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/css/reset.css">css/reset.css</a>' <span class="attribute-name">media</span>='<a class="attribute-value">print</a>' <span class="attribute-name">rel</span>='<a class="attribute-value">stylesheet</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/css</a>'<span>/</span>&gt;</span><span>
+<span id="line13"></span>  </span><span>&lt;<span class="start-tag">link</span> <span class="attribute-name">href</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/css/print.css">css/print.css</a>' <span class="attribute-name">media</span>='<a class="attribute-value">print</a>' <span class="attribute-name">rel</span>='<a class="attribute-value">stylesheet</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/css</a>'<span>/</span>&gt;</span><span>
+<span id="line14"></span>  
+<span id="line15"></span>
+<span id="line16"></span>  </span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/lib/object-assign-pollyfill.js">lib/object-assign-pollyfill.js</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/javascript</a>'&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line17"></span>  </span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/lib/jquery-1.8.0.min.js">lib/jquery-1.8.0.min.js</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/javascript</a>'&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line18"></span>  </span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/lib/jquery.slideto.min.js">lib/jquery.slideto.min.js</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/javascript</a>'&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line19"></span>  </span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/lib/jquery.wiggle.min.js">lib/jquery.wiggle.min.js</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/javascript</a>'&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line20"></span>  </span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/lib/jquery.ba-bbq.min.js">lib/jquery.ba-bbq.min.js</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/javascript</a>'&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line21"></span>  </span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/lib/handlebars-4.0.5.js">lib/handlebars-4.0.5.js</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/javascript</a>'&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line22"></span>  </span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/lib/lodash.min.js">lib/lodash.min.js</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/javascript</a>'&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line23"></span>  </span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/lib/backbone-min.js">lib/backbone-min.js</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/javascript</a>'&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line24"></span>  </span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/swagger-ui.min.js">swagger-ui.min.js</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/javascript</a>'&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line25"></span>  </span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/lib/highlight.9.1.0.pack.js">lib/highlight.9.1.0.pack.js</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/javascript</a>'&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line26"></span>  </span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/lib/highlight.9.1.0.pack_extended.js">lib/highlight.9.1.0.pack_extended.js</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/javascript</a>'&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line27"></span>  </span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/lib/jsoneditor.min.js">lib/jsoneditor.min.js</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/javascript</a>'&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line28"></span>  </span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/lib/marked.js">lib/marked.js</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/javascript</a>'&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line29"></span>  </span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>='<a class="attribute-value" href="view-source:http://localhost:57375/swagger/lib/swagger-oauth.js">lib/swagger-oauth.js</a>' <span class="attribute-name">type</span>='<a class="attribute-value">text/javascript</a>'&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line30"></span>
+<span id="line31"></span>  </span><span class="comment">&lt;!-- Some basic translations --&gt;</span><span>
+<span id="line32"></span>  </span><span class="comment">&lt;!-- &lt;script src='lang/translator.js' type='text/javascript'&gt;&lt;/script&gt; --&gt;</span><span>
+<span id="line33"></span>  </span><span class="comment">&lt;!-- &lt;script src='lang/ru.js' type='text/javascript'&gt;&lt;/script&gt; --&gt;</span><span>
+<span id="line34"></span>  </span><span class="comment">&lt;!-- &lt;script src='lang/en.js' type='text/javascript'&gt;&lt;/script&gt; --&gt;</span><span>
+<span id="line35"></span>
+<span id="line36"></span>  </span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">type</span>="<a class="attribute-value">text/javascript</a>"&gt;</span><span>
+<span id="line37"></span>    window.JSConfig = 
+JSON.parse('{"SwaggerEndpoints":[{"Url":"/swagger/v1/swagger.json","Description":"Data
+ 
+API"}],"BooleanValues":["false","true"],"DocExpansion":"list","SupportedSubmitMethods":["get","post","put","delete","patch"],"OnCompleteScripts":[],"OnFailureScripts":[],"ShowRequestHeaders":false,"JsonEditor":false,"OAuth2ClientId":"your-client-id","OAuth2ClientSecret":"your-client-secret-if-required","OAuth2Realm":"your-realms","OAuth2AppName":"your-app-name","OAuth2ScopeSeparator":"
+ ","OAuth2AdditionalQueryStringParams":{}}');
+<span id="line38"></span>
+<span id="line39"></span>    $(function () {
+<span id="line40"></span>      hljs.configure({
+<span id="line41"></span>        highlightSizeThreshold: 5000
+<span id="line42"></span>      });
+<span id="line43"></span>
+<span id="line44"></span>      // Pre load translate...
+<span id="line45"></span>      if(window.SwaggerTranslator) {
+<span id="line46"></span>        window.SwaggerTranslator.translate();
+<span id="line47"></span>      }
+<span id="line48"></span>      window.swaggerUi = new SwaggerUi({
+<span id="line49"></span>        url: JSConfig.SwaggerEndpoints[0].Url,
+<span id="line50"></span>        validatorUrl: JSConfig.ValidatorUrl,
+<span id="line51"></span>        dom_id: "swagger-ui-container",
+<span id="line52"></span>        booleanValues: JSConfig.BooleanValues,
+<span id="line53"></span>        supportedSubmitMethods: JSConfig.SupportedSubmitMethods, 
+<span id="line54"></span>        onComplete: function(swaggerApi, swaggerUi){
+<span id="line55"></span>          if(typeof initOAuth == "function") {
+<span id="line56"></span>            initOAuth({
+<span id="line57"></span>              clientId: JSConfig.OAuth2ClientId,
+<span id="line58"></span>              clientSecret: JSConfig.OAuth2ClientSecret,
+<span id="line59"></span>              realm: JSConfig.OAuth2Realm,
+<span id="line60"></span>              appName: JSConfig.OAuth2AppName,
+<span id="line61"></span>              scopeSeparator: JSConfig.OAuth2ScopeSeparator,
+<span id="line62"></span>              additionalQueryStringParams: JSConfig.OAuth2AdditionalQueryStringParams
+<span id="line63"></span>            });
+<span id="line64"></span>          }
+<span id="line65"></span>
+<span id="line66"></span>          if(window.SwaggerTranslator) {
+<span id="line67"></span>            window.SwaggerTranslator.translate();
+<span id="line68"></span>          }
+<span id="line69"></span>
+<span id="line70"></span>          _.each(JSConfig.OnCompleteScripts, function (script) {
+<span id="line71"></span>            $.getScript(script);
+<span id="line72"></span>          });
+<span id="line73"></span>        },
+<span id="line74"></span>        onFailure: function(data) {
+<span id="line75"></span>          log("Unable to Load SwaggerUI");
+<span id="line76"></span>
+<span id="line77"></span>          _.each(JSConfig.OnFailureScripts, function (script) {
+<span id="line78"></span>            $.getScript(script);
+<span id="line79"></span>          });
+<span id="line80"></span>        },
+<span id="line81"></span>        docExpansion: JSConfig.DocExpansion,
+<span id="line82"></span>        jsonEditor: JSConfig.JsonEditor,
+<span id="line83"></span>        defaultModelRendering: 'schema',
+<span id="line84"></span>        showRequestHeaders: JSConfig.ShowRequestHeaders,
+<span id="line85"></span>        showOperationIds: false
+<span id="line86"></span>      });
+<span id="line87"></span>
+<span id="line88"></span>      window.swaggerUi.load();
+<span id="line89"></span>
+<span id="line90"></span>      function log() {
+<span id="line91"></span>        if ('console' in window) {
+<span id="line92"></span>          console.log.apply(console, arguments);
+<span id="line93"></span>        }
+<span id="line94"></span>      }
+<span id="line95"></span>  });
+<span id="line96"></span>  </span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line97"></span></span><span>&lt;/<span class="end-tag">head</span>&gt;</span><span>
+<span id="line98"></span>
+<span id="line99"></span></span><span>&lt;<span class="start-tag">body</span> <span class="attribute-name">class</span>="<a class="attribute-value">swagger-section</a>"&gt;</span><span>
+<span id="line100"></span></span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">id</span>='<a class="attribute-value">header</a>'&gt;</span><span>
+<span id="line101"></span>  </span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">class</span>="<a class="attribute-value">swagger-ui-wrap</a>"&gt;</span><span>
+<span id="line102"></span>    </span><span>&lt;<span class="start-tag">a</span> <span class="attribute-name">id</span>="<a class="attribute-value">logo</a>" <span class="attribute-name">href</span>="<a class="attribute-value" href="view-source:http://swagger.io/">http://swagger.io</a>"&gt;</span><span></span><span>&lt;<span class="start-tag">img</span> <span class="attribute-name">class</span>="<a class="attribute-value">logo__img</a>" <span class="attribute-name">alt</span>="<a class="attribute-value">swagger</a>" <span class="attribute-name">height</span>="<a class="attribute-value">30</a>" <span class="attribute-name">width</span>="<a class="attribute-value">30</a>" <span class="attribute-name">src</span>="<a class="attribute-value" href="view-source:http://localhost:57375/swagger/images/logo_small.png">images/logo_small.png</a>" <span>/</span>&gt;</span><span></span><span>&lt;<span class="start-tag">span</span> <span class="attribute-name">class</span>="<a class="attribute-value">logo__title</a>"&gt;</span><span>swagger</span><span>&lt;/<span class="end-tag">span</span>&gt;</span><span></span><span>&lt;/<span class="end-tag">a</span>&gt;</span><span>
+<span id="line103"></span>    </span><span>&lt;<span class="start-tag">form</span> <span class="attribute-name">id</span>='<a class="attribute-value">api_selector</a>'&gt;</span><span>
+<span id="line104"></span>      </span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">class</span>='<a class="attribute-value">input</a>'&gt;</span><span>
+<span id="line105"></span>        </span><span>&lt;<span class="start-tag">input</span> <span class="attribute-name">placeholder</span>="<a class="attribute-value">http://example.com/api</a>" <span class="attribute-name">id</span>="<a class="attribute-value">input_baseUrl</a>" <span class="attribute-name">name</span>="<a class="attribute-value">baseUrl</a>" <span class="attribute-name">type</span>="<a class="attribute-value">text</a>" <span>/</span>&gt;</span><span>
+<span id="line106"></span>        </span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">id</span>='<a class="attribute-value">auth_container</a>'&gt;</span><span></span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span>
+<span id="line107"></span>        </span><span>&lt;<span class="start-tag">select</span> <span class="attribute-name">id</span>="<a class="attribute-value">select_document</a>"&gt;</span><span></span><span>&lt;/<span class="end-tag">select</span>&gt;</span><span>
+<span id="line108"></span>        </span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">type</span>="<a class="attribute-value">text/javascript</a>"&gt;</span><span>
+<span id="line109"></span>          // Append configured endpoints as options in the document selector
+<span id="line110"></span>          var options = '';
+<span id="line111"></span>          $.each(JSConfig.SwaggerEndpoints, function (index, endpoint) {
+<span id="line112"></span>            options += "</span><span>&lt;o</span><span>ption value='" + endpoint.Url + "'&gt;" + endpoint.Description + "</span><span>&lt;/<span></span>o</span><span>ption&gt;";
+<span id="line113"></span>          });
+<span id="line114"></span>          $('#select_document').append(options);
+<span id="line115"></span>
+<span id="line116"></span>          $('#select_document').change(function () {
+<span id="line117"></span>            $('#input_baseUrl').val($(this).val());
+<span id="line118"></span>            window.swaggerUi.headerView.showCustom();
+<span id="line119"></span>          });
+<span id="line120"></span>        </span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
+<span id="line121"></span>        </span><span>&lt;<span class="start-tag">style</span>&gt;</span><span>
+<span id="line122"></span>          #select_document {
+<span id="line123"></span>            border: none;
+<span id="line124"></span>            -moz-border-radius: 4px;
+<span id="line125"></span>            -webkit-border-radius: 4px;
+<span id="line126"></span>            -o-border-radius: 4px;
+<span id="line127"></span>            -ms-border-radius: 4px;
+<span id="line128"></span>            -khtml-border-radius: 4px;
+<span id="line129"></span>            border-radius: 4px;
+<span id="line130"></span>            padding: 6px 8px;
+<span id="line131"></span>            color: white;
+<span id="line132"></span>            background-color: #547f00;
+<span id="line133"></span>            font-size: 0.7em;
+<span id="line134"></span>          }
+<span id="line135"></span>        </span><span>&lt;/<span class="end-tag">style</span>&gt;</span><span>
+<span id="line136"></span>      </span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span>
+<span id="line137"></span>    </span><span>&lt;/<span class="end-tag">form</span>&gt;</span><span>
+<span id="line138"></span>  </span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span>
+<span id="line139"></span></span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span>
+<span id="line140"></span>
+<span id="line141"></span></span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">id</span>="<a class="attribute-value">message-bar</a>" <span class="attribute-name">class</span>="<a class="attribute-value">swagger-ui-wrap</a>" <span class="attribute-name">data-sw-translate</span>&gt;</span><span><span class="entity"><span>&amp;</span>nbsp;</span></span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span>
+<span id="line142"></span></span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">id</span>="<a class="attribute-value">swagger-ui-container</a>" <span class="attribute-name">class</span>="<a class="attribute-value">swagger-ui-wrap</a>"&gt;</span><span></span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span>
+<span id="line143"></span></span><span>&lt;/<span class="end-tag">body</span>&gt;</span><span>
+<span id="line144"></span></span><span>&lt;/<span class="end-tag">html</span>&gt;</span><span>
+<span id="line145"></span></span></pre><menu type="context" id="actions"><menuitem id="goToLine" label="Go to Line…" accesskey="L"></menuitem><menuitem id="wrapLongLines" label="Wrap Long Lines" type="checkbox"></menuitem><menuitem id="highlightSyntax" label="Syntax Highlighting" type="checkbox" checked="true"></menuitem></menu></body></html>

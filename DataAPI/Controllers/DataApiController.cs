@@ -1,17 +1,27 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Configuration;
 using DataApi.Models;
-using System.Linq;
+using System.Text;
+using System;
 
 namespace DataApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class DataApiController : Controller
     {
+        private readonly IConfiguration _configuration;
         private readonly DataContext _context;
 
-        public DataApiController(DataContext context)
+        public DataApiController(IConfiguration configuration, DataContext context)
         {
+            _configuration = configuration;
             _context = context;
 
             if (_context.ShipConfirms.Count() == 0)
@@ -44,19 +54,49 @@ namespace DataApi.Controllers
             return new ObjectResult(item);
         }
 
+        [AllowAnonymous]
         [HttpPost]
-        public IActionResult Create([FromBody] ShipConfirm item)
+        public IActionResult RequestToken([FromBody] TokenRequest request)
         {
-            if (item == null)
+            if (request.Username == "logistics" && request.Password == "testpassword")
             {
-                return BadRequest();                    
+                var claims = new[]
+                {
+                    new Claim(ClaimTypes.Name, request.Username)
+                };
+
+                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SecurityKey"]));
+                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+                var token = new JwtSecurityToken(
+                    issuer: "yourdomain.com",
+                    audience: "yourdomain.com",
+                    claims: claims,
+                    expires: DateTime.Now.AddMinutes(30),
+                    signingCredentials: creds);
+
+                return Ok(new
+                {
+                    token = new JwtSecurityTokenHandler().WriteToken(token)
+                });
             }
 
-            _context.ShipConfirms.Add(item);
-            _context.SaveChanges();
-
-            return CreatedAtRoute("GetShipConfirm", new { id = item.OrderID }, item);
+            return BadRequest("Could not verify username and password");
         }
+
+        //[HttpPost("order/{OrderID}]
+        //public IActionResult Create([FromBody] ShipConfirm item)
+        //{
+        //    if (item == null)
+        //    {
+        //        return BadRequest();                    
+        //    }
+
+        //    _context.ShipConfirms.Add(item);
+        //    _context.SaveChanges();
+
+        //    return CreatedAtRoute("GetShipConfirm", new { id = item.OrderID }, item);
+        //}
 
         [HttpPut("order/{OrderID}")]
         public IActionResult Update(string OrderID, [FromBody] ShipConfirm item)
@@ -92,6 +132,12 @@ namespace DataApi.Controllers
             _context.ShipConfirms.Remove(sc);
             _context.SaveChanges();
             return new NoContentResult();
+        }
+
+        public class TokenRequest
+        {
+            public string Username { get; set; }
+            public string Password { get; set; }
         }
     }
 }
