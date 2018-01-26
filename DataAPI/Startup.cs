@@ -34,7 +34,6 @@ namespace DataApi
             services.AddDbContext<DataContext> (options => 
                 options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"))); 
 
-            services.AddMvc();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -43,24 +42,27 @@ namespace DataApi
                     {
                         ValidateIssuer = true,
                         ValidateAudience = true,
-                        ValidateLifetime = true,
+                        ValidateLifetime = false,
                         ValidateIssuerSigningKey = true,
-                        ValidIssuer = "yourdomain.com",
-                        ValidAudience = "yourdomain.com",
+                        ValidIssuer = "logistics",
+                        ValidAudience = "client1",
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SecurityKey"]))
                     };
                 });
 
+            services.AddMvc();
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "DataApi", Description = "Swagger Data API" });
+                c.SwaggerDoc("v1", new Info { Title = "Logistics", Description = "Data API" });
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app)
         {
+
+            app.UseAuthentication();
             app.UseMvc();
 
             app.UseSwagger();
