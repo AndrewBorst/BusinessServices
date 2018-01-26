@@ -54,49 +54,6 @@ namespace DataApi.Controllers
             return new ObjectResult(item);
         }
 
-        [AllowAnonymous]
-        [HttpPost]
-        public IActionResult RequestToken([FromBody] TokenRequest request)
-        {
-            if (request.Username == "logistics" && request.Password == "testpassword")
-            {
-                var claims = new[]
-                {
-                    new Claim(ClaimTypes.Name, request.Username)
-                };
-
-                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SecurityKey"]));
-                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-                var token = new JwtSecurityToken(
-                    issuer: "yourdomain.com",
-                    audience: "yourdomain.com",
-                    claims: claims,
-                    expires: DateTime.Now.AddMinutes(30),
-                    signingCredentials: creds);
-
-                return Ok(new
-                {
-                    token = new JwtSecurityTokenHandler().WriteToken(token)
-                });
-            }
-
-            return BadRequest("Could not verify username and password");
-        }
-
-        //[HttpPost("order/{OrderID}]
-        //public IActionResult Create([FromBody] ShipConfirm item)
-        //{
-        //    if (item == null)
-        //    {
-        //        return BadRequest();                    
-        //    }
-
-        //    _context.ShipConfirms.Add(item);
-        //    _context.SaveChanges();
-
-        //    return CreatedAtRoute("GetShipConfirm", new { id = item.OrderID }, item);
-        //}
 
         [HttpPut("order/{OrderID}")]
         public IActionResult Update(string OrderID, [FromBody] ShipConfirm item)
@@ -132,6 +89,35 @@ namespace DataApi.Controllers
             _context.ShipConfirms.Remove(sc);
             _context.SaveChanges();
             return new NoContentResult();
+        }
+        [AllowAnonymous]
+        [HttpPost("token/")]
+        public IActionResult RequestToken([FromBody] TokenRequest request)
+        {
+            if (request.Username == "logistics" && request.Password == "testpassword")
+            {
+                var claims = new[]
+                {
+                    new Claim(ClaimTypes.Name, request.Username)
+                };
+
+                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SecurityKey"]));
+                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+                var token = new JwtSecurityToken(
+                    issuer: "yourdomain.com",
+                    audience: "yourdomain.com",
+                    claims: claims,
+                    expires: DateTime.Now.AddMinutes(30),
+                    signingCredentials: creds);
+
+                return Ok(new
+                {
+                    token = new JwtSecurityTokenHandler().WriteToken(token)
+                });
+            }
+
+            return BadRequest("Could not verify username and password");
         }
 
         public class TokenRequest

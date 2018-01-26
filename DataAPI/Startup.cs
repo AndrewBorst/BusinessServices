@@ -32,7 +32,7 @@ namespace DataApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext> (options => 
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); 
+                options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"))); 
 
             services.AddMvc();
 
