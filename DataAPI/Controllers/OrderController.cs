@@ -24,16 +24,16 @@ namespace DataApi.Controllers
             _configuration = configuration; 
             _context = context;
 
-            //if (_context.ShipConfirms.Count() == 0)
-            //{
-            //    _context.ShipConfirms.Add(new ShipConfirm {
-            //        OrderID = "Order1",
-            //        ClientID = "TheClient",
-            //        TrackNum = "9999911111",
-            //        HasSent = false 
-            //    });
-            //    _context.SaveChanges();
-            //}
+            if (_context.ShipConfirms.Count() == 0)
+            {
+               _context.ShipConfirms.Add(new ShipConfirm {
+                   orderID = "Order1",
+                   clientID = "TheClient",
+                   trackNum = "9999911111",
+                   hasSent = false 
+               });
+               _context.SaveChanges();
+            }
         }
 
         [HttpGet("ship/")]
@@ -42,10 +42,10 @@ namespace DataApi.Controllers
             return _context.ShipConfirms.ToList();
         }
 
-        [HttpGet("ship/order/{OrderID}", Name = "GetShipConfirm")]
-        public IActionResult GetById(string OrderID)
+        [HttpGet("ship/order/{orderID}", Name = "GetShipConfirm")]
+        public IActionResult GetById(string orderID)
         {
-            var item = _context.ShipConfirms.FirstOrDefault(t => t.OrderID == OrderID);
+            var item = _context.ShipConfirms.FirstOrDefault(t => t.orderID == orderID);
 
             if (item == null)
             {
@@ -55,32 +55,32 @@ namespace DataApi.Controllers
         }
 
 
-        [HttpPut("order/{OrderID}")]
-        public IActionResult Update(string OrderID, [FromBody] ShipConfirm item)
+        [HttpPut("order/{orderID}")]
+        public IActionResult Update(string orderID, [FromBody] ShipConfirm item)
         {
-            if (item == null || item.OrderID != OrderID)
+            if (item == null || item.orderID != orderID)
             {
                 return BadRequest();
             }
 
-            var sc = _context.ShipConfirms.FirstOrDefault(t => t.OrderID == OrderID);
+            var sc = _context.ShipConfirms.FirstOrDefault(t => t.orderID == orderID);
             if (sc == null)
             {
                 return NotFound();
             }
 
             sc.HasSent = item.HasSent;
-            sc.OrderID = item.OrderID;
+            sc.orderID = item.orderID;
 
             _context.ShipConfirms.Update(sc);
             _context.SaveChanges();
             return new NoContentResult();
         }
 
-        [HttpDelete("order/{OrderID}")]
-        public IActionResult Delete(string OrderID)
+        [HttpDelete("order/{orderID}")]
+        public IActionResult Delete(string orderID)
         {
-            var sc = _context.ShipConfirms.FirstOrDefault(t => t.OrderID == OrderID);
+            var sc = _context.ShipConfirms.FirstOrDefault(t => t.orderID == orderID);
             if (sc == null)
             {
                 return NotFound();

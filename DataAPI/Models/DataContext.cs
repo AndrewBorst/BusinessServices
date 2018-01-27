@@ -10,11 +10,14 @@ namespace DataApi.Models
         }
 
         public DbSet<ShipConfirm> ShipConfirms { get; set; }
+        public DbSet<OrderHeader> OrderHeaders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ShipConfirm>()
-                .HasKey(c => new { c.ClientID, c.OrderID });
+                .HasKey(c => new { c.clientID, c.orderID });
+            modelBuilder.Entity<OrderHeader>()
+                .HasKey(c => new { c.clientID, c.orderID });
         }
 
     }

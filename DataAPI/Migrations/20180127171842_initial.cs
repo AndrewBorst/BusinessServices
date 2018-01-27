@@ -12,10 +12,10 @@ namespace DataApi.Migrations
                 name: "ShipConfirms",
                 columns: table => new
                 {
-                    ClientID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    OrderID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    HasSent = table.Column<bool>(type: "bit", nullable: false),
-                    TrackNum = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ClientID = table.Column<string>(maxLength: 50, nullable: false),
+                    OrderID = table.Column<string>(maxLength: 50, nullable: false),
+                    HasSent = table.Column<bool>(nullable: false),
+                    TrackNum = table.Column<string>(maxLength: 50, nullable: true)
                 },
                 constraints: table =>
                 {

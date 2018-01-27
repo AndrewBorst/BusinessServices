@@ -5,10 +5,13 @@ namespace DataApi.Models
 {
     public class ShipConfirm
     {
-        public string ClientID { get; set; }
-        public string OrderID { get; set; }
-        public string TrackNum { get; set; } 
-        public bool HasSent { get; set; }
+        [MaxLength(50)]
+        public string clientID { get; set; }
+        [MaxLength(50)]
+        public string orderID { get; set; }
+        [MaxLength(50)]
+        public string trackNum { get; set; } 
+        public bool hasSent { get; set; }
 
     }
 }

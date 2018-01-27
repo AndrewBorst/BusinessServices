@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
 namespace DataApi.Migrations
@@ -17,18 +16,20 @@ namespace DataApi.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.0.0-rtm-26452")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
 
             modelBuilder.Entity("DataApi.Models.ShipConfirm", b =>
                 {
-                    b.Property<string>("ClientID");
+                    b.Property<string>("ClientID")
+                        .HasMaxLength(50);
 
-                    b.Property<string>("OrderID");
+                    b.Property<string>("OrderID")
+                        .HasMaxLength(50);
 
                     b.Property<bool>("HasSent");
 
-                    b.Property<string>("TrackNum");
+                    b.Property<string>("TrackNum")
+                        .HasMaxLength(50);
 
                     b.HasKey("ClientID", "OrderID");
 
