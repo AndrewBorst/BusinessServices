@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataApi.Models
@@ -73,12 +74,16 @@ namespace DataApi.Models
         public string storeNum { get; set; }
         [MaxLength(50)]
         public string totalPrice { get; set; }
-        [MaxLength(50)]
-        public string readyForWMS { get; set; }
-        [MaxLength(50)]
-        public string sentToWMS { get; set; }
-        [MaxLength(50)]
-        public string createDate { get; set; }
+        public bool readyForWMS { get; }
+        public bool sentToWMS { get; }
+        private DateTime createDate { get; set; }
+        private DateTime changeDate { get; set; }
+
+        public OrderHeader(){
+            this.createDate = DateTime.Now;
+            this.readyForWMS = true;
+            this.sentToWMS = false;
+        }
 
     }
 }

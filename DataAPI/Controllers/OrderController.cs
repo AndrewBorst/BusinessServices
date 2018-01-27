@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace DataApi.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Produces("application/json")]
     [Route("api/[controller]")]
     public class OrderController : Controller
@@ -24,22 +24,21 @@ namespace DataApi.Controllers
             _configuration = configuration; 
             _context = context;
 
-            if (_context.ShipConfirms.Count() == 0)
+            if (_context.OrderHeaders.Count() == 0)
             {
-               _context.ShipConfirms.Add(new ShipConfirm {
+               _context.OrderHeaders.Add(new OrderHeader {
                    orderID = "Order1",
                    clientID = "TheClient",
-                   trackNum = "9999911111",
-                   hasSent = false 
+                   poNum = "9999911111" 
                });
                _context.SaveChanges();
             }
         }
 
-        [HttpGet("ship/")]
-        public IEnumerable<ShipConfirm> GetAll()
+        [HttpGet("order/")]
+        public IEnumerable<OrderHeader> GetAll()
         {
-            return _context.ShipConfirms.ToList();
+            return _context.OrderHeaders.ToList();
         }
 
         [HttpGet("ship/order/{orderID}", Name = "GetShipConfirm")]
@@ -69,7 +68,7 @@ namespace DataApi.Controllers
                 return NotFound();
             }
 
-            sc.HasSent = item.HasSent;
+            sc.hasSent = item.hasSent;
             sc.orderID = item.orderID;
 
             _context.ShipConfirms.Update(sc);
