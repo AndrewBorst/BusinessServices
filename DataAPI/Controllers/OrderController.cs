@@ -41,10 +41,10 @@ namespace DataApi.Controllers
             return _context.OrderHeaders.ToList();
         }
 
-        [HttpGet("ship/order/{orderID}", Name = "GetShipConfirm")]
+        [HttpGet("order/{orderID}", Name = "GetOrderConfirm")]
         public IActionResult GetById(string orderID)
         {
-            var item = _context.ShipConfirms.FirstOrDefault(t => t.orderID == orderID);
+            var item = _context.OrderHeaders.FirstOrDefault(t => t.orderID == orderID);
 
             if (item == null)
             {
@@ -53,25 +53,39 @@ namespace DataApi.Controllers
             return new ObjectResult(item);
         }
 
+        [HttpPost("order/{orderID}")]
+        public IActionResult Create([FromBody] OrderHeader item)
+        {
+            if (item == null)
+            {
+                return BadRequest();
+            }
+           _context.OrderHeaders.Add(item);
+           _context.SaveChanges();
+
+            return CreatedAtRoute("GetOrderConfirm", new { id = item.orderID }, item);
+        }
+
+
 
         [HttpPut("order/{orderID}")]
-        public IActionResult Update(string orderID, [FromBody] ShipConfirm item)
+        public IActionResult Update(string orderID, [FromBody] OrderHeader item)
         {
             if (item == null || item.orderID != orderID)
             {
                 return BadRequest();
             }
 
-            var sc = _context.ShipConfirms.FirstOrDefault(t => t.orderID == orderID);
-            if (sc == null)
+            var oh = _context.OrderHeaders.FirstOrDefault(t => t.orderID == orderID);
+            if (oh == null)
             {
                 return NotFound();
             }
 
-            sc.hasSent = item.hasSent;
-            sc.orderID = item.orderID;
+            oh.clientID = item.clientID;
+            oh.orderID = item.orderID;
 
-            _context.ShipConfirms.Update(sc);
+            _context.OrderHeaders.Update(oh);
             _context.SaveChanges();
             return new NoContentResult();
         }
@@ -79,13 +93,13 @@ namespace DataApi.Controllers
         [HttpDelete("order/{orderID}")]
         public IActionResult Delete(string orderID)
         {
-            var sc = _context.ShipConfirms.FirstOrDefault(t => t.orderID == orderID);
-            if (sc == null)
+            var oh = _context.OrderHeaders.FirstOrDefault(t => t.orderID == orderID);
+            if (oh == null)
             {
                 return NotFound();
             }
 
-            _context.ShipConfirms.Remove(sc);
+            _context.OrderHeaders.Remove(oh);
             _context.SaveChanges();
             return new NoContentResult();
         }

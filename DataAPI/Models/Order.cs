@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -6,6 +7,13 @@ namespace DataApi.Models
 {
     public class OrderHeader
     {
+        public OrderHeader(){
+            OrderDetail = new List<OrderDetail>();
+
+            this.createDate = DateTime.Now;
+            this.readyForWMS = true;
+            this.sentToWMS = false;
+        }
         [MaxLength(50)]
         public string clientID { get; set; }
         [MaxLength(50)]
@@ -77,13 +85,17 @@ namespace DataApi.Models
         public bool readyForWMS { get; }
         public bool sentToWMS { get; }
         private DateTime createDate { get; set; }
-        private DateTime changeDate { get; set; }
+        private DateTime changeDate { get; set; }   
+        public ICollection<OrderDetail> OrderDetail {get; set; }
 
-        public OrderHeader(){
-            this.createDate = DateTime.Now;
-            this.readyForWMS = true;
-            this.sentToWMS = false;
-        }
-
+    }
+    public class OrderDetail
+    {
+        [MaxLength(50)]
+        public string clientID { get; set; }
+        [MaxLength(50)]
+        public string orderID { get; set; }
+        [MaxLength(50)]
+        public string orderLine { get; set; }
     }
 }

@@ -14,10 +14,17 @@ namespace DataApi.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<OrderHeader>().ToTable("OrderHeader"); 
+            modelBuilder.Entity<OrderDetail>().ToTable("OrderDetail"); 
+
             modelBuilder.Entity<ShipConfirm>()
                 .HasKey(c => new { c.clientID, c.orderID });
             modelBuilder.Entity<OrderHeader>()
+                .HasMany(l => l.OrderDetail);
+            modelBuilder.Entity<OrderHeader>()
                 .HasKey(c => new { c.clientID, c.orderID });
+            modelBuilder.Entity<OrderDetail>()
+                .HasKey(c => new { c.clientID, c.orderID, c.orderLine });
         }
 
     }
